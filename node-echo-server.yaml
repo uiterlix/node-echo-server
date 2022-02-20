@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-echo-server
+  labels:
+    app: node-echo-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-echo-server
+  template:
+    metadata:
+      labels:
+        app: node-echo-server
+    spec:
+      containers:
+      - name: node-echo-server
+        image: uiterlix/node-echo-server
+        ports:
+        - containerPort: 8080
